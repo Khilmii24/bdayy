@@ -1,0 +1,185 @@
+:root {
+    --pink-light: #fff0f5;
+    --pink-main: #ffb6c1;
+    --pink-dark: #ff69b4;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--pink-light);
+    overflow-x: hidden;
+}
+
+/* --- Countdown Overlay --- */
+#countdown-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle, #ffb6c1, #ff69b4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1), opacity 1.2s ease-in-out;
+}
+
+#hearts-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Floating SVG (Timer Screen) */
+.floating-svg {
+    position: absolute;
+    animation: floatUp linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+/* Timer Styling */
+.timer-wrapper { text-align: center; color: white; }
+.rolling-timer { display: flex; gap: 10px; justify-content: center; align-items: baseline; }
+.digit { font-size: clamp(2.5rem, 10vw, 7rem); font-weight: 800; }
+.label { font-size: 0.7rem; text-transform: uppercase; margin-top: 10px; }
+
+/* --- Main Content (Setelah Countdown) --- */
+#main-content {
+    display: none;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffc0cb 100%);
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#main-content.active {
+    display: flex;
+    animation: fadeInPage 2s ease-in forwards;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.content-wrapper { z-index: 10; }
+
+.hero-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.2rem, 8vw, 4.5rem);
+    color: var(--pink-dark);
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.wife-name {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    color: #4a4a4a;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+.blessing-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    opacity: 0;
+}
+
+/* Trigger Animasi Entrance */
+.active .hero-text { animation: revealUp 1s ease-out 0.5s forwards; }
+.active .wife-name { animation: revealUp 1s ease-out 0.8s forwards; }
+.active .blessing-text { animation: revealUp 1s ease-out 1.2s forwards; }
+
+@keyframes revealUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Lyrics & Button */
+.lyrics-card {
+    padding: 25px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    animation: revealUp 1s ease-out 1.5s forwards;
+}
+
+.btn-play {
+    margin-top: 20px;
+    padding: 12px 35px;
+    border-radius: 50px;
+    border: none;
+    background: var(--pink-dark);
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+    transition: 0.3s;
+}
+
+.btn-play:hover { transform: scale(1.05); background: #e91e63; }
+
+/* Hujan Party Icons */
+.party-icon {
+    position: absolute;
+    pointer-events: none;
+    z-index: 5;
+    animation: partyFall 4s linear forwards;
+}
+
+@keyframes partyFall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+#party-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Penting! Agar tombol di bawahnya tetap bisa diklik */
+    z-index: 9999; /* Agar berada di atas semua konten */
+    overflow: hidden;
+}
+
+.party-icon {
+    position: absolute;
+    user-select: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+

@@ -1,11 +1,11 @@
-// --- KONFIGURASI TANGGAL ---
-const TARGET_DATE = new Date("April 28, 2026 23:59:59").getTime();
+
+const TARGET_DATE = new Date("April 29, 2026 00:00:00").getTime();
 
 const heartsBg = document.getElementById('hearts-bg');
 const roseSVG = `<svg viewBox="0 0 512 512" width="100%" height="100%"><path d="M444.6 156.9c-10.7-32.6-43.1-51.2-76.3-43.7l-7.3 1.7c-21.7-27.4-56.1-41.2-90.1-34.9-38.3 7.1-66.3 39.1-68.5 77.2-25.1-6.1-51.8 1.4-69.8 19.3-25.2 25.1-26.6 64.9-3.2 91.6l125.6 142.1c5.2 5.9 14.1 6.3 19.8 1l125.1-125.1c32.7-32.7 34.6-86.3 4.5-121.2l40.2-9z" fill="#e53935"/></svg>`;
 const kissSVG = `<svg viewBox="0 0 512 512" width="100%" height="100%"><path d="M410.1 213.1c-19.1-23.3-51.2-34.1-85.3-34.1-34.1 0-66.2 10.8-85.3 34.1-19.1-23.3-51.2-34.1-85.3-34.1-34.1 0-66.2 10.8-85.3 34.1-22.1 27-23.7 65.7-4.7 93.9 31.4 46.5 91.1 94.2 159.2 136.6 10.3 6.4 23.8 6.4 34.1 0 68.1-42.4 127.8-90.1 159.2-136.6 19.1-28.2 17.5-66.9-4.7-93.9z" fill="#ff4081"/></svg>`;
 
-// Efek melayang di layar countdown
+
 function createFloatingElement() {
     if (!heartsBg) return;
     const el = document.createElement('div');

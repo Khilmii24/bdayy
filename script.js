@@ -1,5 +1,5 @@
 
-const TARGET_DATE = new Date("April 29, 2026 00:00:00").getTime();
+const TARGET_DATE = new Date("April 29, 2026 00:20:20").getTime();
 
 const heartsBg = document.getElementById('hearts-bg');
 const roseSVG = `<svg viewBox="0 0 512 512" width="100%" height="100%"><path d="M444.6 156.9c-10.7-32.6-43.1-51.2-76.3-43.7l-7.3 1.7c-21.7-27.4-56.1-41.2-90.1-34.9-38.3 7.1-66.3 39.1-68.5 77.2-25.1-6.1-51.8 1.4-69.8 19.3-25.2 25.1-26.6 64.9-3.2 91.6l125.6 142.1c5.2 5.9 14.1 6.3 19.8 1l125.1-125.1c32.7-32.7 34.6-86.3 4.5-121.2l40.2-9z" fill="#e53935"/></svg>`;
